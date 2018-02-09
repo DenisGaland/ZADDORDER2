@@ -1,0 +1,81 @@
+<mvc:View xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" xmlns:m="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:ui="sap.ui.commons" xmlns:tnt="sap.tnt"
+	controllerName="ZADDORDER.controller.View1" html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<m:App>
+		<m:pages>
+			<m:Page showHeader="false" title="{i18n>title}" binding="{GETPLANT>/S_T001WSet('03')}" class="sapUiSizeCompact sapUiTinyMargin">
+				<m:content>
+					<sap.ui.core:Icon src="sap-icon://home" size="2em" xmlns:sap.ui.core="sap.ui.core" id="__icon0"/>
+					<m:Label text="{GETPLANT>EPlant} {GETPLANT>ET001w/Name1}"  design="Bold"/>
+					<!-- Begin Header -->
+					<m:Label text="{i18n>confirm}" width="100%" id="CONFIRM" visible="false"/>
+					<m:Label text="{i18n>yes}" width="100%" id="YES" visible="false"/>
+					<m:Label text="{i18n>no}" width="100%" id="NO" visible="false"/>
+					<!-- End Header -->
+					<!-- Begin scan input -->
+					<m:HBox width="100%" id="Article" alignContent="Start" alignItems="Center" visible="true">
+						<m:items>
+							<m:Label text="{i18n>scanean} :" width="100%" id="__label0_copy" design="Bold" textAlign="Center"/>
+							<m:HBox width="0.6%" alignContent="Start" alignItems="Center"/>
+							<m:SearchField width="100%" id="SearchArt" placeholder="" search="searchArt"/>
+						</m:items>
+					</m:HBox>
+					<!-- End scan input -->
+					<!-- Begin Table -->
+					<m:HBox width="100%" id="TOOL_BAR" alignContent="Start" alignItems="Center" visible="false">
+						<m:Toolbar>
+							<m:content>
+								<m:Button text="{i18n>confirme}" icon="sap-icon://save" tooltip="Recept selected items" press="Validate" type="Emphasized"/>
+								<m:Button icon="sap-icon://delete" tooltip="clear selection" press="ClearBox" text="{i18n>annule}" type="Emphasized"/>
+							</m:content>
+						</m:Toolbar>
+					</m:HBox>
+					<m:Button text="Back" icon="sap-icon://undo" tooltip="Recept selected items" press="BackInit" id="Back" type="Emphasized" width="100px"
+						visible="false"/>
+					<m:ScrollContainer horizontal="true" vertical="true" focusable="true" height="420px">
+						<m:Table id="table1" items="{itemModel>/items}" ariaLabelledBy="title" width="100%" visible="false" class="tableItems">
+							<m:columns>
+								<m:Column width="1rem">
+									<m:Label text="{i18n>ean}"/>
+								</m:Column>
+								<m:Column width="3rem">
+									<m:Label text="{i18n>desc}({Model2&gt;/Products})"/>
+								</m:Column>
+								<m:Column width="0.5rem" class="yellow">
+									<m:Label text="{i18n>stock}"/>
+								</m:Column>
+								<m:Column width="0.5rem">
+									<m:Label text="{i18n>pac}"/>
+								</m:Column>
+								<m:Column width="0.5rem">
+									<m:Label text="{i18n>ounit}"/>
+								</m:Column>
+								<m:Column width="0.5rem">
+									<m:Label text="{i18n>qty}"/>
+								</m:Column>
+								<!--<m:Column width="1rem"></m:Column>
+						<m:Column width="1rem">
+							<m:Label text=""/>
+						</m:Column>-->
+							</m:columns>
+							<m:items>
+								<m:ColumnListItem>
+									<m:cells>
+										<m:Text text="{itemModel>Gtin}"/>
+										<m:Text text="{itemModel>maktx}"/>
+										<m:Text text="{itemModel>Labst_f} EA" class="bold"/>
+										<m:Text text="{itemModel>Umrez}" class="bold"/>
+										<m:Text text="{itemModel>BSTME}" class="bold"/>
+										<m:Text text="{itemModel>Menge_f}" class="bold"/>
+										<!--<m:Button text="" width="5rem" icon="sap-icon://negative" tooltip="Recept selected items" press="getContextByIndexn" type="Reject"/>
+								<m:Button text="" width="5rem" icon="sap-icon://positive" tooltip="Recept selected items" press="getContextByIndexp" type="Accept"/>-->
+									</m:cells>
+								</m:ColumnListItem>
+							</m:items>
+						</m:Table>
+					</m:ScrollContainer>
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>
