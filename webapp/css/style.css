@@ -64,3 +64,7 @@
 .tableItems th {
     background-color: deepskyblue;
 }
+
+.smalltext {
+    font-size: 0.7rem !important;
+}
